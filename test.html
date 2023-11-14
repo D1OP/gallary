@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sélection de photo avec détails</title>
+  <style>
+    /* Style pour la mise en forme */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+    .image {
+      cursor: pointer;
+    }
+    .details {
+      display: none;
+    }
+    .details.show {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+<div class="gallery">
+  <div class="image" onclick="showDetails('photo1.jpg')"> <!-- Remplacer 'photo1.jpg' par le chemin de votre photo -->
+    <img src="img.jpg" alt="Photo 1">
+  </div>
+</div>
+
+<div class="details" id="detailsSection">
+  <h2>Meek Mill est un chanteur compositeur de RAP</h2>
+  <p id="selectedPhotoDetails"></p>
+  <button onclick="hideDetails()">Fermer les détails</button>
+</div>
+
+<script>
+  function showDetails(photoSrc) {
+    const detailsSection = document.getElementById('detailsSection');
+    const selectedPhotoDetails = document.getElementById('selectedPhotoDetails');
+    
+    detailsSection.classList.add('show');
+    selectedPhotoDetails.innerText = ``;
+  }
+
+  function hideDetails() {
+    const detailsSection = document.getElementById('detailsSection');
+    detailsSection.classList.remove('show');
+  }
+</script>
+
+</body>
+</html>
